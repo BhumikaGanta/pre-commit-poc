@@ -28,3 +28,13 @@ repos:
     rev: v1.4.0
     hooks:
       - id: detect-secrets
+
+  # Local hooks for languages not provided by upstream repos
+  - repo: local
+    hooks:
+      - id: checkstyle
+        name: Checkstyle (Java)
+        entry: python tools/pre-commit/checkstyle.py
+        language: python
+        description: Run Checkstyle via Maven or Gradle if Java files exist
+        files: '\.java$'
