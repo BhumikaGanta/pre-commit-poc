@@ -39,19 +39,47 @@ def main():
         # Use wrapper
         cmd = [gradlew if os.path.exists(gradlew) else gradlew_bat, "check"]
         rc = run(cmd)
+        if rc == 127:
+            # wrapper not runnable -> skip with warning
+            print(
+                "WARNING: Gradle wrapper found but not runnable; skipping Checkstyle.",
+                file=sys.stderr,
+            )
+            print(
+                "WARNING: Gradle wrapper found but not runnable; skipping Checkstyle."
+            )
+            return 0
         return rc
 
     if which("gradle"):
         rc = run(["gradle", "check"])
+        if rc == 127:
+            print(
+                "WARNING: Gradle command returned 127; skipping Checkstyle.",
+                file=sys.stderr,
+            )
+            print("WARNING: Gradle command returned 127; skipping Checkstyle.")
+            return 0
         return rc
 
     if which("mvn"):
         rc = run(["mvn", "checkstyle:check"])
+        if rc == 127:
+            print(
+                "WARNING: Maven command returned 127; skipping Checkstyle.",
+                file=sys.stderr,
+            )
+            print("WARNING: Maven command returned 127; skipping Checkstyle.")
+            return 0
         return rc
 
-    print(
-        "No build tool (Gradle/Maven) found to run Checkstyle. Install one or add a wrapper to the repo."
+    warning_msg = (
+        "WARNING: No build tool (Gradle/Maven) found to run Checkstyle. "
+        "Install one or add a wrapper to the repo. Checkstyle was skipped."
     )
+    print(warning_msg, file=sys.stderr)
+    # Also echo to stdout for visibility in CI logs
+    print(warning_msg)
     # Treat as success to avoid blocking if project intentionally has no Java build configured
     return 0
 
