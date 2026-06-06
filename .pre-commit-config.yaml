@@ -51,4 +51,4 @@ repos:
         name: TypeScript Compiler Check
         entry: npx tsc --noEmit
         language: system
-        files: \.ts$
+        pass_filenames: false
