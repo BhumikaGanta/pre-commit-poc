@@ -1,9 +1,13 @@
 // Sample C++ test file
 // This file is added to demonstrate the C++ sample folder structure.
+
 #include <iostream>
 
 int main() {
-  std::cout << "Hello from C++ sample
-      file\n ";
-      return 0;
+  std::cout << "Hello from C++ sample file\n";
+
+  int x = 1;
+  std::cout << x << std::endl;
+
+  return 0;
 }

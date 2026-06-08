@@ -71,3 +71,8 @@ repos:
         entry: clang-format -i
         language: system
         files: \.(cpp|c|h|hpp)$
+      - id: cppcheck
+        name: C/C++ Static Analysis
+        entry: cppcheck --enable=all --error-exitcode=1 --suppress=missingIncludeSystem
+        language: system
+        files: \.(cpp|c)$
