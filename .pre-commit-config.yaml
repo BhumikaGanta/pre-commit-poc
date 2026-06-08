@@ -63,3 +63,11 @@ repos:
         entry: npx tsc --noEmit
         language: system
         pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: clang-format
+        name: C/C++ Format Check
+        entry: clang-format -i
+        language: system
+        files: \.(cpp|c|h|hpp)$
