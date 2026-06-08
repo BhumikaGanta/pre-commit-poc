@@ -44,3 +44,11 @@ repos:
         language: python
         description: Run Checkstyle via Maven or Gradle if Java files exist
         files: '\.java$'
+
+  - repo: local
+    hooks:
+      - id: tsc
+        name: TypeScript Compiler Check
+        entry: npx tsc --noEmit
+        language: system
+        pass_filenames: false
