@@ -6,3 +6,8 @@ function sayHello() {
 }
 
 sayHello();
+
+function test() {
+  console.log("Testing eslint hook");
+}
+test();

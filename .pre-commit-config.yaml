@@ -35,7 +35,31 @@ repos:
       - id: prettier
 
   # Secret scanning
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.28.0
+    hooks:
+      - id: eslint
+        files: \.(js|jsx|ts|tsx)$
+
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.4.0
     hooks:
       - id: detect-secrets
+
+  # Local hooks for languages not provided by upstream repos
+  - repo: local
+    hooks:
+      - id: checkstyle
+        name: Checkstyle (Java)
+        entry: python tools/pre-commit/checkstyle.py
+        language: python
+        description: Run Checkstyle via Maven or Gradle if Java files exist
+        files: '\.java$'
+
+  - repo: local
+    hooks:
+      - id: tsc
+        name: TypeScript Compiler Check
+        entry: npx tsc --noEmit
+        language: system
+        pass_filenames: false
