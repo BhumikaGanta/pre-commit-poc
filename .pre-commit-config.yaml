@@ -76,3 +76,12 @@ repos:
         entry: cppcheck --enable=all --error-exitcode=1 --suppress=missingIncludeSystem
         language: system
         files: \.(cpp|c)$
+
+  - repo: local
+    hooks:
+      - id: dotnet-format
+        name: C# Format Check
+        entry: dotnet format
+        language: system
+        pass_filenames: false
+        files: \.cs$
