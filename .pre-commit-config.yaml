@@ -60,7 +60,7 @@ repos:
     hooks:
       - id: tsc
         name: TypeScript Compiler Check
-        entry: npx tsc --noEmit
+        entry: npx --yes tsc --noEmit --pretty false
         language: system
         pass_filenames: false
 
@@ -68,7 +68,7 @@ repos:
     hooks:
       - id: clang-format
         name: C/C++ Format Check
-        entry: clang-format -i
+        entry: clang-format --dry-run --Werror
         language: system
         files: \.(cpp|c|h|hpp)$
       - id: cppcheck
@@ -81,7 +81,7 @@ repos:
     hooks:
       - id: dotnet-format
         name: C# Format Check
-        entry: dotnet format
+        entry: dotnet format --verify-no-changes --verbosity quiet
         language: system
         pass_filenames: false
         files: \.cs$
