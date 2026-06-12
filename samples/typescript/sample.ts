@@ -1,5 +1,2 @@
-function greet(name: string) {
-  return "Hello " + name;
-}
-
-greet("World");
+let message: string = 123;
+console.log(message);
