@@ -44,3 +44,12 @@ are enforced in CI using GitHub Actions.
 
 A GitHub Actions workflow is configured at
 `.github/workflows/pre-commit.yml` to run the same checks on push and pull requests.
+
+## Quality Gates
+
+- CI runs the pre-commit suite on Linux, Windows, and macOS.
+- CI records hook execution time in the GitHub Actions job summary.
+- CI fails when hook execution exceeds `PRE_COMMIT_RUNTIME_THRESHOLD_SECONDS`.
+- PR authors use `.github/pull_request_template.md` to confirm formatting noise was handled by automation.
+
+See `docs/quality-gates.md` for acceptance criteria and operating guidance.

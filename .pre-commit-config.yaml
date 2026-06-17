@@ -68,13 +68,13 @@ repos:
     hooks:
       - id: clang-format
         name: C/C++ Format Check
-        entry: clang-format --dry-run --Werror
-        language: system
+        entry: python tools/pre-commit/optional_tool.py clang-format --dry-run --Werror --
+        language: python
         files: \.(cpp|c|h|hpp)$
       - id: cppcheck
         name: C/C++ Static Analysis
-        entry: cppcheck --enable=all --error-exitcode=1 --suppress=missingIncludeSystem
-        language: system
+        entry: python tools/pre-commit/optional_tool.py cppcheck --enable=all --error-exitcode=1 --suppress=missingIncludeSystem --
+        language: python
         files: \.(cpp|c)$
 
   - repo: local
