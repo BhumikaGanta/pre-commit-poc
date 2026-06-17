@@ -85,6 +85,14 @@ jobs:
         shell: pwsh
         run: |
           $threshold = [int]$env:PRE_COMMIT_RUNTIME_THRESHOLD_SECONDS
+          if ($env:RUNNER_OS -eq "Windows") {
+            $env:SKIP = "cppcheck"
+            "### Windows cppcheck note" >> $env:GITHUB_STEP_SUMMARY
+            "" >> $env:GITHUB_STEP_SUMMARY
+            "Cppcheck is skipped on Windows because the GitHub-hosted runner package can install a binary with a broken bundled `std.cfg` lookup path. Linux and macOS still enforce the cppcheck hook." >> $env:GITHUB_STEP_SUMMARY
+            "" >> $env:GITHUB_STEP_SUMMARY
+          }
+
           $startedAt = Get-Date
           pre-commit run --all-files --show-diff-on-failure
           $exitCode = $LASTEXITCODE
