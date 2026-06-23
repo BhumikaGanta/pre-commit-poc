@@ -2,4 +2,4 @@
 #include "utils.h"
 
 void print_welcome(){
-std::cout<<"==== WELCOME TO LOGIN SYSTEM ====\n"; 
+std::cout<<"==== WELCOME TO THE LOGIN SYSTEM ====\n";
