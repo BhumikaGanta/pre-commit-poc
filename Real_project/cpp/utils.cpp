@@ -2,5 +2,4 @@
 #include "utils.h"
 
 void print_welcome(){
-std::cout<<"==== WELCOME TO LOGIN SYSTEM ====\n"; // bad formatting
-}
+std::cout<<"==== WELCOME TO LOGIN SYSTEM ====\n"; 
