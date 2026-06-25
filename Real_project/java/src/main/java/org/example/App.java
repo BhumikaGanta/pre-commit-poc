@@ -1,15 +1,15 @@
 package org.example;
 
 /**
- * Hello world!
+ * Java Project!
  *
  */
 public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        System.out.println( "Nirbhay kkumar" );
+        System.out.println( "Simple java project" );
+        System.out.println( "Welcome to the Java Project!" );
 
     }
 }
