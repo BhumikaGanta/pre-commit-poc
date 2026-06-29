@@ -53,3 +53,11 @@ A GitHub Actions workflow is configured at
 - PR authors use `.github/pull_request_template.md` to confirm formatting noise was handled by automation.
 
 See `docs/quality-gates.md` for acceptance criteria and operating guidance.
+
+## Documentation
+
+- `docs/demo-guide.md` explains the implementation for stakeholder demos.
+- `docs/requirements.md` captures functional and non-functional requirements.
+- `docs/metrics.md` covers Feature 5 metrics and developer feedback collection.
+- `docs/developer-guide.md` covers Feature 6 developer enablement.
+- `docs/troubleshooting.md` lists common local and CI issues.
