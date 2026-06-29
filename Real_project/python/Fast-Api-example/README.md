@@ -105,8 +105,8 @@ This `docker build` command sets the build context to `src` so the `COPY require
    Configure your DATABASE_URL in `src/.env` (copy from `src/app/.env-example`):
 
    ```env
-   DATABASE_URL=postgresql+asyncpg://user:password@localhost/dbname
-   SECRET_KEY=your-secret-key
+   DATABASE_URL=postgresql+asyncpg://user:password@localhost/dbname # pragma: allowlist secret
+   SECRET_KEY=your-secret-key # pragma: allowlist secret
    ```
 
 2. **Run Migrations**
@@ -200,7 +200,7 @@ If you see "relation 'notes' already exists", ensure you have run `alembic upgra
 
 ### Connection Refused
 
-If the backend can't connect to the DB in Docker, verify the `DATABASE_URL` uses `db` as the hostname: `postgresql+asyncpg://user:pass@db/dbname`.
+If the backend can't connect to the DB in Docker, verify the `DATABASE_URL` uses `db` as the hostname: `postgresql+asyncpg://user:pass@db/dbname`. # pragma: allowlist secret
 
 ### Frontend API URL
 
@@ -219,4 +219,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-**Built with ❤️ using FastAPI and Vue.js**
+**Built with using FastAPI and Vue.js**
