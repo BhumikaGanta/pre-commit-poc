@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Developer Guide
 
 Overview
@@ -233,5 +232,3 @@ this local clone has `core.autocrlf=false`, which stops the repeated noise.
 | SSH fetch fails on port 22                    | Network blocks SSH to GitHub | Use HTTPS remote URL                                               |
 | `cppcheck` missing locally                    | System package not installed | Install `cppcheck` or rely on CI for that gate                     |
 | C# hook fails locally                         | .NET SDK missing             | Install .NET 8 SDK                                                 |
-
-> > > > > > > main
